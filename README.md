@@ -46,4 +46,34 @@ Client → Reverse Proxy → Backend Server(s)
 - **Reverse Proxy:** Nginx, Apache, AWS Elastic Load Balancer
 
 
+# Practical 
+### 1. Launch 2 instances first instance which will act as reverse proxy server and best example for reverse proxy server is "Nginx" and second instance will be used for our "website".
+**First instance**
+![image](https://github.com/user-attachments/assets/fb2c0185-62fb-4d50-a7f6-fbc01ed886ab)
+ **second instance**
+ ![image](https://github.com/user-attachments/assets/fcd043ca-f56b-421d-a8ee-5cf85cdd6ebe)
+
+ ### 2. Install nginx on first instance.
+ ![image](https://github.com/user-attachments/assets/b7fd8cc4-eb7b-4a3f-ac75-6f90670ab556)
+ ### 3. Install apache in second instance.
+ ![image](https://github.com/user-attachments/assets/4348bac7-e8f8-4186-be40-68ec2afdf218)
+ ### 4. In first instance enter into directory "/etc/nginx/sites-enabled" edit default and enter below block
+ ````
+server {
+    listen 80;
+    server_name _;
+
+    location / {
+        proxy_pass http://<private-ip of instance-2>;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+````
+### 5. After hiting Public Ip of instance-1 we are redirect to instance-2.
+**After hiting Public IP instance-1**
+
+
 
