@@ -72,8 +72,7 @@ server {
     }
 }
 ````
-### 5. After hiting Public Ip of instance-1 we are redirect to instance-2.
-**After hiting Public IP instance-1**
+
 
 
 
