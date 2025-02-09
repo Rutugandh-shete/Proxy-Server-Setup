@@ -86,9 +86,10 @@ sudo ln -s /etc/nginx/sites-available/reverse-proxy /etc/nginx/sites-enabled
 ````
 ### Output
 **Proxy setup**
-![alt text](image.png)
+![Screenshot 2025-02-08 230415](https://github.com/user-attachments/assets/2fd03786-3186-413c-9703-962abb80d829)
+
 **Main frontend**
-![alt text](image-1.png)
+![Screenshot 2025-02-08 230500](https://github.com/user-attachments/assets/7d5bc326-fa0d-463a-833e-8113e79472ca)
 
 
 
