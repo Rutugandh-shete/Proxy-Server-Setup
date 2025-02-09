@@ -58,6 +58,13 @@ Client → Reverse Proxy → Backend Server(s)
  ### 3. Install apache in second instance.
  ![image](https://github.com/user-attachments/assets/4348bac7-e8f8-4186-be40-68ec2afdf218)
  ### 4. In first instance enter into directory "/etc/nginx/sites-enabled" edit default and enter below block
+ ### 5. Create reverse proxy file in /etc/nginx/sites-available/reverse-proxy
+````
+sudo vim /etc/nginx/sites-available/reverse-proxy
+
+````
+**Add this code below and add public/private main frontend code**
+
  ````
 server {
     listen 80;
@@ -72,7 +79,16 @@ server {
     }
 }
 ````
+### 6. Add this reverse-proxy file to sites-enabled from sites-available because where nginx configurations are stored but not active and remove default file from sites-enabled
+````
+sudo ln -s /etc/nginx/sites-available/reverse-proxy /etc/nginx/sites-enabled
 
+````
+### Output
+**Proxy setup**
+![alt text](image.png)
+**Main frontend**
+![alt text](image-1.png)
 
 
 
